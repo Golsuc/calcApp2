@@ -126,4 +126,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.927" />
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="101dp"
+        android:layout_height="53dp"
+        android:text="Clear"
+        android:onClick="reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
