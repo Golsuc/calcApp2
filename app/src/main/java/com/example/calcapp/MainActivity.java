@@ -1,13 +1,13 @@
 package com.example.calcapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -27,50 +27,33 @@ public class MainActivity extends AppCompatActivity {
         String div = "÷";
 
     }
-    public void changeColorSub(View view){
 
-        Button sub = findViewById(R.id.findDif);
-        RelativeLayout rel = findViewById(R.id.layout);
-        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
-        rel.setBackgroundColor(rel.getContext().getResources().getColor(R.color.brightRed));
-
-    }
-    public void changeColorSum(View view){
-
-        Button sum = findViewById(R.id.findSum);
-
-
-    }
-    public void changeColorProd(View view){
-
-
-        Button prod = findViewById(R.id.findProd);
-
-
-    }
-    public void changeColorQuo(View view){
-
-
-        Button quo = findViewById(R.id.findQuo);
-
-
-    }
     public void findSum(View view){
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
         TextView curAction = findViewById(R.id.userAction);
-
+        Button sub = findViewById(R.id.findDif);
+        Button sum = findViewById(R.id.findSum);
+        Button prod = findViewById(R.id.findProd);
+        Button quo = findViewById(R.id.findQuo);
+        final ConstraintLayout constraintLayout;
+        constraintLayout = findViewById(R.id.layout);
+        constraintLayout.setBackgroundColor(constraintLayout.getContext().getResources().getColor(R.color.brightGreen));
+        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.green));
+        sum.setBackgroundColor(sub.getContext().getResources().getColor(R.color.green));
+        prod.setBackgroundColor(sub.getContext().getResources().getColor(R.color.green));
+        quo.setBackgroundColor(sub.getContext().getResources().getColor(R.color.green));
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
-        double sum = num1 + num2; // 1.0 + 2.0 = 3.0
-        if (sum%1 == 0){ // ?
-            int intSum = (int)Math.round(sum);
+        double sum1 = num1 + num2; // 1.0 + 2.0 = 3.0
+        if (sum1%1 == 0){ // ?
+            int intSum = (int)Math.round(sum1);
             String finalText = " " + intSum;
             curAction.setText("+");
             numberSumTV.setText(finalText);
         }else{
-            String finalText = " " + sum;
+            String finalText = " " + sum1;
 
             curAction.setText("+");
 
@@ -78,13 +61,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    @SuppressLint("ResourceAsColor")
     public void findDif(View view){
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
         TextView curAction = findViewById(R.id.userAction);
         Button sub = findViewById(R.id.findDif);
-
+        Button sum = findViewById(R.id.findSum);
+        Button prod = findViewById(R.id.findProd);
+        Button quo = findViewById(R.id.findQuo);
+        final ConstraintLayout constraintLayout;
+        constraintLayout = findViewById(R.id.layout);
+        constraintLayout.setBackgroundColor(constraintLayout.getContext().getResources().getColor(R.color.brightRed));
+        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
+        sum.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
+        prod.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
+        quo.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
+        //.setBackgroundColor(rel.getContext().getResources().getColor(R.color.brightRed));
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double dif = num1 - num2;
@@ -102,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
             numberSumTV.setText(finalText);
 
         }
-        RelativeLayout rel = findViewById(R.id.layout);
-        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.red));
-        rel.setBackgroundColor(rel.getContext().getResources().getColor(R.color.brightRed));
 
     }
     public void findQuo(View view){
@@ -112,12 +103,23 @@ public class MainActivity extends AppCompatActivity {
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
         TextView curAction = findViewById(R.id.userAction);
+        Button sub = findViewById(R.id.findDif);
+        Button sum = findViewById(R.id.findSum);
+        Button prod = findViewById(R.id.findProd);
+        Button quo = findViewById(R.id.findQuo);
+        final ConstraintLayout constraintLayout;
+        constraintLayout = findViewById(R.id.layout);
+        constraintLayout.setBackgroundColor(constraintLayout.getContext().getResources().getColor(R.color.orange));
+        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.darkOrange));
+        sum.setBackgroundColor(sub.getContext().getResources().getColor(R.color.darkOrange));
+        prod.setBackgroundColor(sub.getContext().getResources().getColor(R.color.darkOrange));
+        quo.setBackgroundColor(sub.getContext().getResources().getColor(R.color.darkOrange));
 
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
-        double quo = num1 / num2;
-        if (quo%1 == 0){
-            int intQuo = (int)Math.round(quo);
+        double quo1 = num1 / num2;
+        if (quo1%1 == 0){
+            int intQuo = (int)Math.round(quo1);
             String finalText = " " + intQuo;
             curAction.setText("÷");
 
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
             curAction.setText("÷");
 
-            String finalText = " " + quo;
+            String finalText = " " + quo1;
 
             numberSumTV.setText(finalText);
 
@@ -137,18 +139,28 @@ public class MainActivity extends AppCompatActivity {
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
         TextView curAction = findViewById(R.id.userAction);
-
+        Button sub = findViewById(R.id.findDif);
+        Button sum = findViewById(R.id.findSum);
+        Button prod = findViewById(R.id.findProd);
+        Button quo = findViewById(R.id.findQuo);
+        final ConstraintLayout constraintLayout;
+        constraintLayout = findViewById(R.id.layout);
+        constraintLayout.setBackgroundColor(constraintLayout.getContext().getResources().getColor(R.color.brightBlue));
+        sub.setBackgroundColor(sub.getContext().getResources().getColor(R.color.blue));
+        sum.setBackgroundColor(sub.getContext().getResources().getColor(R.color.blue));
+        prod.setBackgroundColor(sub.getContext().getResources().getColor(R.color.blue));
+        quo.setBackgroundColor(sub.getContext().getResources().getColor(R.color.blue));
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
-        double prod = num1 * num2;
-        if (prod%1 == 0){
-            int intProd = (int)Math.round(prod);
+        double prod1 = num1 * num2;
+        if (prod1%1 == 0){
+            int intProd = (int)Math.round(prod1);
             String finalText = " " + intProd;
             curAction.setText("*");
             numberSumTV.setText(finalText);
         }else{
 
-        String finalText = " " + prod;
+        String finalText = " " + prod1;
 
         curAction.setText("*");
 
